@@ -1,12 +1,61 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+    {% block menu %}
+        <style>
+            .sidenav {
+                position: fixed;
+                height: 100%;
+                float: left;
+                z-index: 1;
+                top: 0;
+                left: 0;
+                overflow-x: hidden;
+                padding-top: 60px;
+            }
+
+            .sidenav a {
+                padding: 8px 8px 8px 32px;
+                text-decoration: none;
+                font-size: 25px;
+                display: block;
+                transition: 0.3s;
+            }
+
+            .sidenav a:hover {
+                color: #f1f1f1;
+            }
+
+            .footer {
+                background-color: green;
+                color: white;
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                padding-bottom: 10px;
+                padding-top: 10px;
+                text-align: center;
+            }
+        </style>
+        <div id="mySidenav" class="sidenav">
+            <a href="{{ path('aboutMe') }}">About me</a>
+            <a href="{{ path('showname') }}">Back to homepage</a>
+        </div>
+    {% endblock %}
+    {% block body %}
+
+    {% endblock %}
+{% block javascripts %}{% endblock %}
+{% block footer %}
+    <div class="footer">
+        &copy; Becode
+    </div>
+{% endblock %}
+</body>
 </html>
